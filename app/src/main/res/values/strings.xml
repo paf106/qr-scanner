@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">QR scanner</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="wifiOptions">
+        <item>WEP</item>
+        <item>WPA/WPA2</item>
+        <item>Sin contraseña</item>
+    </string-array>
+</resources>

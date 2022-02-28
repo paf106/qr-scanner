@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.pablo.qrscanner">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".ui.view.components.utils.QrScannerApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.QRScanner"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.view.history.historyType.EmailTypeHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.history.historyType.PhoneTypeHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.history.historyType.WifiTypeHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.generate.generateType.EmailTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.generate.generateType.PhoneTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.generate.generateType.WifiTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.generate.generateType.TextTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.components.utils.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.history.historyType.WebTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.view.history.historyType.TextTypeHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+    </application>
+
+</manifest>

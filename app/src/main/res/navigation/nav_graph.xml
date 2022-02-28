@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/historyFragment">
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.pablo.qrscanner.ui.view.scan.ScanFragment"
+        android:label="Escaner"
+        tools:layout="@layout/fragment_scan" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.pablo.qrscanner.ui.view.history.HistoryFragment"
+        android:label="Historial"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.pablo.qrscanner.ui.view.settings.SettingsFragment"
+        android:label="Ajustes"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/generateFragment"
+        android:name="com.pablo.qrscanner.ui.view.generate.GenerateFragment"
+        android:label="Generar"
+        tools:layout="@layout/fragment_generate" />
+</navigation>

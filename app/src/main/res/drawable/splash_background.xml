@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    android:opacity="opaque" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/teal_200" />
+
+    <item
+        android:width="200dp"
+        android:height="200dp"
+
+        android:gravity="center">
+        <bitmap android:src="@drawable/ic_logo" />
+    </item>
+
+</layer-list>
