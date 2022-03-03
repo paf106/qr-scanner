@@ -26,6 +26,7 @@ class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
+    private lateinit var database :HistoryDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +34,15 @@ class HistoryFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true);
+        database = HistoryDatabase.getInstance(requireContext())
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val database = HistoryDatabase.getInstance(view.context)
+       // val database = HistoryDatabase.getInstance(view.context)
         database.getHistoryDao().getAll().observe(viewLifecycleOwner, Observer {
             initRecyclerView(it)
         })
@@ -98,7 +101,7 @@ class HistoryFragment : Fragment() {
     }
 
     fun createAlert() {
-        val database = HistoryDatabase.getInstance(requireContext())
+        //val database = HistoryDatabase.getInstance(requireContext())
         val builder = AlertDialog.Builder(context)
         builder.setMessage("¿Seguro que quieres eliminar todo el historial?")
         builder.setTitle("Eliminar historial")
@@ -108,9 +111,7 @@ class HistoryFragment : Fragment() {
                 })
             .setNegativeButton("No",
                 DialogInterface.OnClickListener { dialog, id ->
-                    // User cancelled the dialog
                 })
-        // Create the AlertDialog object and return it
         builder.create()
         builder.show()
     }

@@ -30,13 +30,13 @@ import kotlinx.coroutines.launch
 
 
 class ScanFragment : Fragment() {
+
     private var _binding: FragmentScanBinding? = null
     private val binding get() = _binding!!
-
+    private lateinit var database: HistoryDatabase
 
     private var scanner = registerForActivityResult(ScanContract()) {
         if (it.contents != null) {
-            val database = HistoryDatabase.getInstance(requireContext())
             val result = it.contents
 
             // Tiene resultado
@@ -113,7 +113,7 @@ class ScanFragment : Fragment() {
                 }
                 goToPreviousFragment()
 
-            } else if (result.contains("wifi:")) {
+            } else if (result.contains("WIFI:")) {
                 Utils.goTo(requireContext(), "wifi", result, WifiTypeHistoryActivity())
                 CoroutineScope(Dispatchers.IO).launch {
                     database.getHistoryDao()
@@ -143,6 +143,7 @@ class ScanFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentScanBinding.inflate(inflater, container, false)
+        database = HistoryDatabase.getInstance(requireContext())
         return binding.root
     }
 

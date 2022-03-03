@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415175013456",
+    "project_id": "qr-scanner-pablo",
+    "storage_bucket": "qr-scanner-pablo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415175013456:android:0fe5a1eabaef2e52764d55",
+        "android_client_info": {
+          "package_name": "com.pablo.qrscanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415175013456-g2pl7o60tn0n2423n2s9glroa47ofogm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTjWOruG5wme7FUTeHqhLe0KOhFSmWWV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415175013456-g2pl7o60tn0n2423n2s9glroa47ofogm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -71,8 +71,56 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtNombreWifi"
                 tools:text="12345" />
 
+            <TextView
+                android:id="@+id/labelOcultaWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="Wifi oculta:"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/txtOcultaWifi"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelPasswordWifi" />
+
+            <TextView
+                android:id="@+id/txtOcultaWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.379"
+                app:layout_constraintStart_toEndOf="@+id/labelOcultaWifi"
+                app:layout_constraintTop_toBottomOf="@+id/txtPasswordWifi"
+                tools:text="No" />
+
+            <TextView
+                android:id="@+id/labelCifradoWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="Cifrado:"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/txtCifradoWifi"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelOcultaWifi" />
+
+            <TextView
+                android:id="@+id/txtCifradoWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.379"
+                app:layout_constraintStart_toEndOf="@+id/labelCifradoWifi"
+                app:layout_constraintTop_toBottomOf="@+id/txtOcultaWifi"
+                tools:text="WPA2" />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLlamar"
+                android:id="@+id/btnConectar"
                 style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +130,7 @@
                 app:icon="@drawable/ic_wifi"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtPasswordWifi" />
+                app:layout_constraintTop_toBottomOf="@+id/txtCifradoWifi" />
 
             <LinearLayout
                 android:id="@+id/ll2"
@@ -92,7 +140,7 @@
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnLlamar">
+                app:layout_constraintTop_toBottomOf="@+id/btnConectar">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvWifi"

@@ -22,12 +22,11 @@ class HistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.txtEscaneo.text = history.text
         binding.txtTimestamp.text = history.timestamp
         when (history.scanType) {
-            //ScanType.QR_CODE -> binding.ivScanType.setImageResource(R.drawable.ic_qr_code)
             ScanType.EMAIL -> binding.ivScanType.setImageResource(R.drawable.ic_email)
             ScanType.CONTACT -> binding.ivScanType.setImageResource(R.drawable.ic_contacts)
             ScanType.PHONE -> binding.ivScanType.setImageResource(R.drawable.ic_phone)
             ScanType.EVENT -> binding.ivScanType.setImageResource(R.drawable.ic_calendar_month)
-            ScanType.WIFI -> binding.ivScanType.setImageResource(R.drawable.ic_web)
+            ScanType.WIFI -> binding.ivScanType.setImageResource(R.drawable.ic_wifi)
             ScanType.WEBSITE -> binding.ivScanType.setImageResource(R.drawable.ic_search)
             ScanType.TEXT -> binding.ivScanType.setImageResource(R.drawable.ic_text)
         }
