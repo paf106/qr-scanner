@@ -6,7 +6,7 @@
     android:id="@+id/cvEscaner"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
+    android:layout_margin="15dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="7dp"
     app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivScanType"
             app:layout_constraintTop_toTopOf="parent">
@@ -47,7 +47,7 @@
                 android:id="@+id/txtEscaneo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -57,8 +57,8 @@
                 android:id="@+id/txtTimestamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:textSize="15sp"
+                android:textColor="@color/text_muted"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtEscaneo"
                 tools:text="18 dic 2009 20:54" />

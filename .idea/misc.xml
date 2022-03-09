@@ -31,8 +31,8 @@
         <entry key="app/src/main/res/layout/fragment_generate.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.25462962962962965" />
         <entry key="app/src/main/res/layout/fragment_scan.xml" value="0.25462962962962965" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.45" />
-        <entry key="app/src/main/res/layout/item_history.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_history.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/menu/history_menu.xml" value="0.335" />
