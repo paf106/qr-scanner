@@ -3,24 +3,23 @@ package com.pablo.qrscanner.ui.view.generate.generateType
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
+
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.pablo.qrscanner.R
 import com.pablo.qrscanner.databinding.ActivityWifiTypeBinding
+import com.pablo.qrscanner.ui.view.components.utils.QrScannerApplication.Companion.PERMISO_DISCO
 import com.pablo.qrscanner.ui.view.components.utils.Utils
-import java.io.File
-import java.io.FileOutputStream
-import java.lang.Exception
+import com.pablo.qrscanner.ui.view.components.utils.Utils.Companion.saveToGallery
+
 
 class WifiTypeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWifiTypeBinding
-    private val PERMISO_DISCO = 8
     private lateinit var text: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +67,7 @@ class WifiTypeActivity : AppCompatActivity() {
 
             binding.ivWifiType.setImageBitmap(Utils.generateQrCode(text))
             binding.llDownloadShare.visibility = View.VISIBLE
-            binding.cvDownload.setOnClickListener { saveToGallery() }
+            binding.cvDownload.setOnClickListener { saveToGallery(this, this, text) }
             binding.cvShare.setOnClickListener { sendTo() }
         } else {
             Toast.makeText(this, "Tienes que rellenar los campos", Toast.LENGTH_SHORT).show()
@@ -84,34 +83,6 @@ class WifiTypeActivity : AppCompatActivity() {
         startActivity(Intent.createChooser(shareIntent, "Compartir por"))
     }
 
-    private fun saveToGallery() {
-        if (Utils.isPermissionAccepted(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            val bitmap = Utils.generateQrCode(text)
-            lateinit var outputStream: FileOutputStream
-            val file = Environment.getExternalStorageDirectory()
-            val dir = File(file.absolutePath + "/QrScanner")
-            dir.mkdirs()
-
-            val filename = "$text.png"
-            val outFile = File(dir, filename)
-            try {
-                outputStream = FileOutputStream(outFile)
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-                outputStream.flush()
-
-            } catch (e: Exception) {
-
-            } finally {
-                outputStream.close()
-            }
-            Toast.makeText(this, "Hecho", Toast.LENGTH_SHORT).show()
-        } else {
-            Utils.requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, this, 77)
-        }
-
-
-    }
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -120,10 +91,15 @@ class WifiTypeActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISO_DISCO) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                saveToGallery()
+                saveToGallery(this, this, text)
             } else {
+                Utils.requestPermission(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    this,
+                    PERMISO_DISCO
+                )
                 // No ha aceptadao el permiso
-                 Toast.makeText(this, "No has aceptado el permiso", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "No has aceptado el permiso", Toast.LENGTH_SHORT).show()
             }
         }
     }

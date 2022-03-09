@@ -1,17 +1,23 @@
 package com.pablo.qrscanner.ui.view.components.utils
 
 
+import android.Manifest
 import android.app.Activity
 import android.content.*
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Environment
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import com.pablo.qrscanner.ui.view.components.utils.QrScannerApplication.Companion.PERMISO_DISCO
 import com.pablo.qrscanner.ui.view.components.utils.QrScannerApplication.Companion.prefs
+import java.io.File
+import java.io.FileOutputStream
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -95,6 +101,36 @@ class Utils {
                 Toast.makeText(context, "Necesitas una app para enviar correo", Toast.LENGTH_SHORT)
                     .show()
             }
+        }
+
+        fun saveToGallery(context: Context, activity: Activity, text: String) {
+            if (isPermissionAccepted(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                val bitmap = Utils.generateQrCode(text)
+                lateinit var outputStream: FileOutputStream
+                val file = Environment.getExternalStorageDirectory()
+                val dir = File(file.absolutePath + "/QrScanner")
+                dir.mkdirs()
+
+                val filename = "$text.png"
+                val outFile = File(dir, filename)
+                try {
+                    outputStream = FileOutputStream(outFile)
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+                    outputStream.flush()
+
+                } catch (e: Exception) {
+
+                } finally {
+                    outputStream.close()
+                }
+                Toast.makeText(context, "Código guardado", Toast.LENGTH_SHORT).show()
+            } else {
+                requestPermission(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE, activity,
+                    PERMISO_DISCO
+                )
+            }
+
         }
     }
 }

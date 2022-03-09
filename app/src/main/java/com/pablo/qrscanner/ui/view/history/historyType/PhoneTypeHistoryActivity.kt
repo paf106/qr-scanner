@@ -5,12 +5,12 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pablo.qrscanner.databinding.ActivityPhoneTypeHistoryBinding
+import com.pablo.qrscanner.ui.view.components.utils.QrScannerApplication.Companion.PERMISO_LLAMADA
 import com.pablo.qrscanner.ui.view.components.utils.Utils
 
 class PhoneTypeHistoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPhoneTypeHistoryBinding
-    private val PERMISO_LLAMADA = 777
     private lateinit var phone: String
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,7 +8,9 @@ import com.pablo.qrscanner.databinding.ActivityEmailTypeBinding
 import com.pablo.qrscanner.ui.view.components.utils.Utils
 
 class EmailTypeActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityEmailTypeBinding
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEmailTypeBinding.inflate(layoutInflater)
@@ -18,6 +20,19 @@ class EmailTypeActivity : AppCompatActivity() {
         supportActionBar?.title = "Generar email"
 
         binding.btnGenerarEmail.setOnClickListener { generateTextCode() }
+        binding.cvDownload.setOnClickListener {
+            Utils.saveToGallery(
+                this,
+                this,
+                binding.tfEmailContent.text.toString()
+            )
+        }
+        binding.cvShare.setOnClickListener {
+            Utils.shareTo(
+                this,
+                binding.tfEmailContent.text.toString()
+            )
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

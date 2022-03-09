@@ -20,6 +20,19 @@ class TextTypeActivity : AppCompatActivity() {
         supportActionBar?.title = "Generar texto"
 
         binding.btnGenerarText.setOnClickListener { generateTextCode() }
+        binding.cvDownload.setOnClickListener {
+            Utils.saveToGallery(
+                this,
+                this,
+                binding.tfTextContent.text.toString()
+            )
+        }
+        binding.cvShare.setOnClickListener {
+            Utils.shareTo(
+                this,
+                binding.tfTextContent.text.toString()
+            )
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

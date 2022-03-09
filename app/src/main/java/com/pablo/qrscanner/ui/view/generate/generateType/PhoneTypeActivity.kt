@@ -10,6 +10,7 @@ import com.pablo.qrscanner.ui.view.components.utils.Utils
 class PhoneTypeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPhoneTypeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPhoneTypeBinding.inflate(layoutInflater)
@@ -19,6 +20,19 @@ class PhoneTypeActivity : AppCompatActivity() {
         supportActionBar?.title = "Generar teléfono"
 
         binding.btnGenerarPhone.setOnClickListener { generateTextCode() }
+        binding.cvDownload.setOnClickListener {
+            Utils.saveToGallery(
+                this,
+                this,
+                binding.tfPhoneContent.text.toString()
+            )
+        }
+        binding.cvShare.setOnClickListener {
+            Utils.shareTo(
+                this,
+                binding.tfPhoneContent.text.toString()
+            )
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
